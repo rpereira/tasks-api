@@ -17,6 +17,7 @@ library
   hs-source-dirs:      src
   exposed-modules:     Todo.Lib
                      , Todo.API
+                     , Todo.Types.Todo
                      , Todo.Web.Todo
   build-depends:       base >= 4.7 && < 5
                      , aeson

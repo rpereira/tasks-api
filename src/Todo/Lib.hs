@@ -13,13 +13,7 @@ import Network.Wai.Handler.Warp
 import Servant
 
 import Todo.API
-
-data Todo = Todo
-  { id          :: Int
-  , description :: [Char]
-  , created     :: Integer
-  , completed   :: Bool
-  } deriving (Eq, Show)
+import Todo.Types.Todo
 
 $(deriveJSON defaultOptions ''Todo)
 
@@ -33,7 +27,7 @@ api :: Proxy API
 api = Proxy
 
 server :: Server API
-server = return todos
+server = return todos :<|> error "not implemented yet"
 
 todos :: [Todo]
 todos = [ Todo 1 "This is my first task" 1488878317 False
