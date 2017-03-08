@@ -15,7 +15,9 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     Lib
+  exposed-modules:     Todo.Lib
+                     , Todo.API
+                     , Todo.Web.Todo
   build-depends:       base >= 4.7 && < 5
                      , aeson
                      , servant-server

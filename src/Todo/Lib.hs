@@ -1,7 +1,7 @@
 {-# LANGUAGE DataKinds       #-}
 {-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeOperators   #-}
-module Lib
+module Todo.Lib
     ( startApp
     , app
     ) where
@@ -12,14 +12,7 @@ import Network.Wai
 import Network.Wai.Handler.Warp
 import Servant
 
--- newtype Description = Description Text
---    deriving (Show, Eq, ToJSON, FromJSON, Arbitrary)
---
--- newtype Created = Created Integer
---    deriving (Show, Eq, ToJSON, FromJSON, Arbitrary)
---
--- newtype Completed = Completed Bool
---    deriving (Show, Eq, ToJSON, FromJSON, Arbitrary, FromText, ToText)
+import Todo.API
 
 data Todo = Todo
   { id          :: Int
@@ -29,8 +22,6 @@ data Todo = Todo
   } deriving (Eq, Show)
 
 $(deriveJSON defaultOptions ''Todo)
-
-type API = "todos" :> Get '[JSON] [Todo]
 
 startApp :: IO ()
 startApp = run 8080 app
