@@ -12,3 +12,6 @@ data Todo = Todo
   , created     :: Integer
   , completed   :: Bool
   } deriving (Show, Generic, Typeable)
+
+instance ToJSON Todo
+instance FromJSON Todo

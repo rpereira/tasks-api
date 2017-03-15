@@ -1,5 +1,4 @@
 {-# LANGUAGE DataKinds       #-}
-{-# LANGUAGE TemplateHaskell #-}
 {-# LANGUAGE TypeOperators   #-}
 module Todo.Lib
     ( startApp
@@ -14,8 +13,6 @@ import Servant
 
 import Todo.API
 import Todo.Types.Todo
-
-$(deriveJSON defaultOptions ''Todo)
 
 startApp :: IO ()
 startApp = run 8080 app
